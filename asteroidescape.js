@@ -7,7 +7,7 @@
 	var changeDifficulty = false;
 	var fireballOnScreen = false;
 	var chocbarOnScreen = false;
-	bgMusic = new Audio('POL-king-of-coins-short.wav'); 
+	bgMusic = new Audio('vaporwave-loop.mp3'); 
 	bgMusic.addEventListener('ended', function() {
 		this.currentTime = 0;
 		this.play();
