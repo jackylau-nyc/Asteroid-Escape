@@ -16,10 +16,10 @@
     <script src = "asteroidescape.js"></script>
   </head>
   <body onload="start()">
-<table >
-<tr><th colspan="3" style="height:20vh; text-align:center; font-family:'Courier New';  font-size:50px ">Asteroid Escape</th></tr>
+<table style="width:100vw">
+<tr><th colspan="3" style="height:20vh; text-align:center; font-family:'Roboto Sans';  font-size:50px ">Asteroid Escape</th></tr>
 	<tr> 
-		<td style="background-color:#222 ; width: 80vw;horizontal-align:right; vertical-align:top">
+		<td style="background-color:#222 ; width: 20vw;horizontal-align:right; vertical-align:top">
 			<div class="nav">
 			  <div id = "logInBtns">
 				<!--<button style= "width:100%" id = "loginbtn" onclick="pauseGame(); document.getElementById('login').style.display='block'; listening = false;" style="width:auto;">Login</button>-->
@@ -106,8 +106,6 @@
 			<source src="NFF-glassy-tap-02.wav" type="audio/wav">
 			Your browser does not support the audio element.
 		</audio>
-
-<tr><th colspan="3" style="height:25px; text-align:right">version 3.1 &nbsp </th></tr>
 </table>
 </div>
   </body>
