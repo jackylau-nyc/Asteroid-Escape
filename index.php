@@ -16,8 +16,10 @@
     <script src = "asteroidescape.js"></script>
   </head>
   <body onload="start()">
+  <div class="header">
+  	<h1 style="height:20vh; text-align:center; font-family:'Impact';  font-size:50px ">Asteroid Escape</h1>
+  </div>
 <table style="width:80vw">
-<tr><th colspan="3" style="height:20vh; text-align:center; font-family:'Impact';  font-size:50px ">Asteroid Escape</th></tr>
 	<tr> 
 		<td style="background-color:#222 ; width: 20vw;horizontal-align:right; vertical-align:top">
 			<div class="nav">

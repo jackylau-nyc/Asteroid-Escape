@@ -7,7 +7,6 @@ html, body {
 canvas { 
 	border: 1px solid; 
 }
-
 	
 input[type=text], input[type=password], input[type=file]  {
     width: 100%;
@@ -129,6 +128,14 @@ span.psw {
 .closeInTable:focus {
     color: red;
     cursor: pointer;
+}
+
+
+.header {
+    height: 20vw;
+    width: 100vw;
+  background-color: #111
+  color:#eee;  
 }
 
 /* Add Zoom Animation */
