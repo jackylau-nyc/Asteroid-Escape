@@ -2,6 +2,7 @@
 
 html, body {
     width: 99%;
+    color: #111;
 }
 
 canvas { 
@@ -130,12 +131,22 @@ span.psw {
     cursor: pointer;
 }
 
+.container1 {
+    display: flex;
+}
 
 .header {
     height: 20vw;
     width: 100vw;
-  background-color: #eee
-  color:#111;  
+    background-color: #111
+    color:#eee;  
+    text-align:center; 
+    font-family:'Impact';  
+    font-size:50px
+}
+
+.menu {
+
 }
 
 /* Add Zoom Animation */

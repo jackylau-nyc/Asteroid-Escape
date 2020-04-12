@@ -16,20 +16,23 @@
     <script src = "asteroidescape.js"></script>
   </head>
   <body onload="start()">
+  	<div class="container1">
   <div class="header">
-  	<h1 style="height:20vh; text-align:center; font-family:'Impact';  font-size:50px ">Asteroid Escape</h1>
+  	<p>Asteroid Escape</p>
   </div>
-<table style="width:80vw">
-	<tr> 
-		<td style="background-color:#222 ; width: 20vw;horizontal-align:right; vertical-align:top">
-			<div class="nav">
-			  <div id = "logInBtns">
-				<!--<button style= "width:100%" id = "loginbtn" onclick="pauseGame(); document.getElementById('login').style.display='block'; listening = false;" style="width:auto;">Login</button>-->
-				<input type="text" placeholder="Enter Username" value = "<?php echo $username ?>" name="uname" id="loginUsername" class ="loginField" onFocus="if (deadTimer == -1) pauseGame(); document.getElementById('logInResponse').innerHTML='';" autofocus>
+  <div class="menu">
+  	<input type="text" placeholder="Enter Username" value = "<?php echo $username ?>" name="uname" id="loginUsername" class ="loginField" onFocus="if (deadTimer == -1) pauseGame(); document.getElementById('logInResponse').innerHTML='';" autofocus>
 				<input type="password" placeholder="Enter Password" value = "<?php echo $password ?>" name="psw" id="loginPassword" class ="loginField" onFocus="if (deadTimer == -1) pauseGame(); document.getElementById('logInResponse').innerHTML='';">
 				<span class="error"><div id="logInResponse"></div></span>
 				<button  style= "float:right; background-color: #eee;" type="button" onclick="logIn()" class="signupbtn">Log In</button>
 				<button style= "float:left; background-color: #eee;" id = "signUpbtn" onclick="if (deadTimer == -1) pauseGame(); document.getElementById('signUp').style.display='block'; listening = false;" style="width:auto;">Sign Up</button>
+  </div>
+  <div class="gameplay"></div>
+</div>
+<table style="width:80vw">
+	<tr> 
+		<td style="background-color:#222 ; width: 20vw;horizontal-align:right; vertical-align:top">
+			<div class="nav">
 			 </div>
 			 <div id = "userInfo">
 			 </div>
