@@ -9,7 +9,7 @@ canvas {
 }
 	
 input[type=text], input[type=password], input[type=file]  {
-    width: 100%;
+    width: 50%;
     padding: 10px 10px;
     margin: 4px 0;
     display: inline-block;
@@ -45,7 +45,7 @@ th {
 
 /* Set a style for all buttons */
 button {
-    color: white;
+    color: #eee;
 	padding: 10px 10px;
     margin: 0 0;
     border: none;
@@ -134,8 +134,8 @@ span.psw {
 .header {
     height: 20vw;
     width: 100vw;
-  background-color: #111
-  color:#eee;  
+  background-color: #eee
+  color:#111;  
 }
 
 /* Add Zoom Animation */
