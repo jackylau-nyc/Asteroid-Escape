@@ -17,9 +17,9 @@
   </head>
   <body onload="start()">
 <table >
-<tr><th colspan="3" style="height:75px; text-align:center; font-family:'Courier New';  font-size:50px ">HUNGRY DROID</th></tr>
+<tr><th colspan="3" style="height:20vh; text-align:center; font-family:'Courier New';  font-size:50px ">Asteroid Escape</th></tr>
 	<tr> 
-		<td style="background-color:#F2F4F4 ; width: 250px;horizontal-align:right; vertical-align:top">
+		<td style="background-color:#222 ; width: 80vw;horizontal-align:right; vertical-align:top">
 			<div class="nav">
 			  <div id = "logInBtns">
 				<!--<button style= "width:100%" id = "loginbtn" onclick="pauseGame(); document.getElementById('login').style.display='block'; listening = false;" style="width:auto;">Login</button>-->
@@ -32,7 +32,7 @@
 			 <div id = "userInfo">
 			 </div>
 			</div><br><br><br>
-			<div id = "leaderboard" style="width: 250px;">
+			<div id = "leaderboard" style="width: 75vw;">
 			</div>
 			<!-- 
 			<div id="login" class="modal">
