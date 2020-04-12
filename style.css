@@ -136,9 +136,9 @@ span.psw {
 }
 
 .header {
-    height: 20vw;
+    height: 20vh;
     width: 100vw;
-    background-color: #111
+    background-color: #111;
     color:#eee;  
     text-align:center; 
     font-family:'Impact';  
@@ -146,7 +146,13 @@ span.psw {
 }
 
 .menu {
-
+    height: 80vh;
+    width:40vw;
+    background-color: #111;
+    color: #eee;
+    text-align: center;
+    font-family: 'Impact';
+    font-size:20px;
 }
 
 /* Add Zoom Animation */

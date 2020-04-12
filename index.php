@@ -24,7 +24,7 @@
   	<input type="text" placeholder="Enter Username" value = "<?php echo $username ?>" name="uname" id="loginUsername" class ="loginField" onFocus="if (deadTimer == -1) pauseGame(); document.getElementById('logInResponse').innerHTML='';" autofocus>
 				<input type="password" placeholder="Enter Password" value = "<?php echo $password ?>" name="psw" id="loginPassword" class ="loginField" onFocus="if (deadTimer == -1) pauseGame(); document.getElementById('logInResponse').innerHTML='';">
 				<span class="error"><div id="logInResponse"></div></span>
-				<button  style= "float:right; background-color: #eee;" type="button" onclick="logIn()" class="signupbtn">Log In</button>
+				<button style= "float:right; background-color: #eee;" type="button" onclick="logIn()" class="signupbtn">Log In</button>
 				<button style= "float:left; background-color: #eee;" id = "signUpbtn" onclick="if (deadTimer == -1) pauseGame(); document.getElementById('signUp').style.display='block'; listening = false;" style="width:auto;">Sign Up</button>
   </div>
   <div class="gameplay"></div>
