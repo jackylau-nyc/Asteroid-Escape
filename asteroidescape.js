@@ -26,15 +26,15 @@
 	var deadTimer = -1;
 	var highscore = 0;
 	var character = new Image();
-		character.src = 'androidCapeSprite.png';
+		character.src = 'spaceship.png';
 	var ball = new Image();
-		ball.src = 'fireballSprite.png';
+		ball.src = 'asteroid.png';
 	var bar = new Image();
-		bar.src = 'barSprite.png';
+		bar.src = 'battery.png';
 	var heart = new Image();
-		heart.src = 'heartSprite.png';
+		heart.src = 'repair.png';
 	var bgImage = new Image();
-		bgImage.src = 'bgSprite.png';
+		bgImage.src = 'spacebg.jpg';
 	var bgCol = 11;
 	var bgRow = 11;
 	var bgTextColor = 'white';
@@ -170,9 +170,9 @@
 	  Game.context.textAlign = "center"; 
 	  Game.context.textBaseline = "hanging"; 
 	  Game.context.fillText("Use Arrow keys to move around.", Game.width/2, (Game.height/2) - 50);
-	  Game.context.fillText("Pick up the chocolates and avoid the Fireballs.", Game.width/2, (Game.height/2) - 25);
-	  Game.context.fillText("Pick up 5 chocolates in a row to increase Multiplier!", Game.width/2, (Game.height/2));
-	  Game.context.fillText("Pick up the hearts for Xtra lives!", Game.width/2, (Game.height/2)+25);
+	  Game.context.fillText("Pick up the fuel packs and avoid the asteroids.", Game.width/2, (Game.height/2) - 25);
+	  Game.context.fillText("Pick up fuel packs to increase your multiplier!", Game.width/2, (Game.height/2));
+	  Game.context.fillText("Pick up the repair kits for extra lives!", Game.width/2, (Game.height/2)+25);
 	  Game.context.fillText("Press P to start or pause the game.", Game.width/2, (Game.height/2) + 100);
 	  Game.context.shadowBlur = 0;
 	  //Game.background1 = new Background1();
@@ -282,9 +282,9 @@
 	    Game.context.textAlign = "center"; 
 	    Game.context.textBaseline = "hanging"; 
 	    Game.context.fillText("You Died!", Game.width/2, (Game.height/2) - 50);
-	    Game.context.fillText("Your Score was " + Game.score + ".", Game.width/2, (Game.height/2) - 25);
+	    Game.context.fillText("Your Score : " + Game.score + ".", Game.width/2, (Game.height/2) - 25);
 		if (Game.score > highscore) {
-			Game.context.fillText("Congrats! You beat your old highscore of " + highscore + ".", Game.width/2, (Game.height/2));
+			Game.context.fillText("Congrats! You beat your old highscore of : " + highscore, Game.width/2, (Game.height/2));
 			highscore = Game.score;
 			saveHighScore();
 		}
@@ -643,7 +643,7 @@
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 				document.getElementById('signUpResponse').innerHTML = xmlhttp.responseText;
-				if (xmlhttp.responseText == 'Added Successfully!') {
+				if (xmlhttp.responseText == 'Signed Up Successfully!') {
 					document.getElementById('signUpFormBtns').style.display = 'none';
 					username = tempUsername;
 					pass = tempPass;

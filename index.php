@@ -9,9 +9,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hungry Droid</title>
+    <title>
+    	Asteroid Escape
+    </title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-    <script src = "hungryDroid.js"></script>
+    <script src = "asteroidescape.js"></script>
   </head>
   <body onload="start()">
 <table >
