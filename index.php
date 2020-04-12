@@ -21,54 +21,19 @@
   	<p>Asteroid Escape</p>
   </div>
   <div class="menu">
-  	<input type="text" placeholder="Enter Username" value = "<?php echo $username ?>" name="uname" id="loginUsername" class ="loginField" onFocus="if (deadTimer == -1) pauseGame(); document.getElementById('logInResponse').innerHTML='';" autofocus>
+  	<div id = "logInBtns">
+				<!--<button style= "width:100%" id = "loginbtn" onclick="pauseGame(); document.getElementById('login').style.display='block'; listening = false;" style="width:auto;">Login</button>-->
+				<input type="text" placeholder="Enter Username" value = "<?php echo $username ?>" name="uname" id="loginUsername" class ="loginField" onFocus="if (deadTimer == -1) pauseGame(); document.getElementById('logInResponse').innerHTML='';" autofocus>
 				<input type="password" placeholder="Enter Password" value = "<?php echo $password ?>" name="psw" id="loginPassword" class ="loginField" onFocus="if (deadTimer == -1) pauseGame(); document.getElementById('logInResponse').innerHTML='';">
 				<span class="error"><div id="logInResponse"></div></span>
-				<button style= "float:right; background-color: #eee;" type="button" onclick="logIn()" class="signupbtn">Log In</button>
+				<button  style= "float:right; background-color: #eee;" type="button" onclick="logIn()" class="signupbtn">Log In</button>
 				<button style= "float:left; background-color: #eee;" id = "signUpbtn" onclick="if (deadTimer == -1) pauseGame(); document.getElementById('signUp').style.display='block'; listening = false;" style="width:auto;">Sign Up</button>
-  </div>
-  <div class="gameplay"></div>
-</div>
-<table style="width:80vw">
-	<tr> 
-		<td style="background-color:#222 ; width: 20vw;horizontal-align:right; vertical-align:top">
-			<div class="nav">
 			 </div>
 			 <div id = "userInfo">
 			 </div>
 			</div><br><br><br>
 			<div id = "leaderboard" style="width: 75vw;">
 			</div>
-			<!-- 
-			<div id="login" class="modal">
-			  
-			  <form class="modal-content animate" action="/login.php">
-				<div class="imgcontainer">
-				  <span onclick="document.getElementById('login').style.display='none'; listening = true;" class="close" title="Close Modal">&times;</span>
-				</div>
-				<div class="container">
-				  <label><b>Username</b></label>
-				  <input type="text" placeholder="Enter Username" name="uname" id="loginUsername" required>
-				  <label><b>Password</b></label>
-				  <input type="password" placeholder="Enter Password" name="psw" id="loginPassword" required>
-				  
-				  <input type="checkbox" checked="checked"> Remember me
-				  
-				  <span class="error"><div id="logInResponse"></div></span>
-				  
-				  <div  id = "logInFormBtns" class="clearfix">
-				  <button type="button" onclick="document.getElementById('login').style.display='none'; listening = true;" class="cancelbtn">Cancel</button>
-				  <button type="button" onclick="logIn()" class="signupbtn">Log In</button>
-				  </div>
-				  <span class="psw">Forgot <a href="#">password?</a></span>
-				 </div>
-			  </form>
-			</div>
-			-->
-			
-			
-
-
 			<div id="signUp" class="modal">
 			 <form class="modal-content animate" action="signUp.php">
 			  <div class="imgcontainer">
@@ -94,24 +59,9 @@
 				</div>
 			  </form>
 			</div>
-		</td>
-		
-		<td style="vertical-align:top">
-			<div> 
-			<canvas id="canvas">Error: Browser does not support canvas element.</canvas>
-			</div>
-		</td>
-		
-		<!--<td style="background-color:#F2F4F4 ; width: 200px; vertical-align:top">
-		
-		</td>-->
-		
-	</tr>
-		<audio id="chocPickUp">
-			<source src="NFF-glassy-tap-02.wav" type="audio/wav">
-			Your browser does not support the audio element.
-		</audio>
-</table>
+  </div>
+  <div class="gameplay"></div>
+</div>
 </div>
   </body>
 </html>

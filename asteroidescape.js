@@ -15,7 +15,7 @@
 	var eventVolume = 0.2;
 	bgMusic.volume = eventVolume/3;
 	var chocPickUpSound = new Audio('NFF-glassy-tap-02.wav');
-	var heartPickUpSound = new Audio('NFF-bonus.wav');
+	var heartPickUpSound = new Audio('health-kit.mp3');
 	var fireballPickUpSound = new Audio('NFF-explode.wav');
 	var androidDeadSound = new Audio('NFF-slowdown.wav');
 	//var chocPickUpSound = document.getElementById("chocPickUp"); 
