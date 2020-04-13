@@ -68,7 +68,7 @@
 		} else {
 		  paused = true;
 		  bgMusic.pause();
-		  Game.context.font = "24px serif"; 
+		  Game.context.font = "24px roboto"; 
 	      Game.context.textAlign = "center"; 
 	      Game.context.textBaseline = "hanging"; 
 	      Game.context.fillText("PAUSED", Game.width/2, (Game.height/2) - 50);
@@ -84,10 +84,10 @@
     var Key = {
       _pressed: {},
 
-      LEFT: 37,
-      UP: 38,
-      RIGHT: 39,
-      DOWN: 40,
+      LEFT: 30,
+      UP: 30,
+      RIGHT: 30,
+      DOWN: 30,
 
       isDown: function(keyCode) {
         return this._pressed[keyCode];
