@@ -84,10 +84,10 @@
     var Key = {
       _pressed: {},
 
-      LEFT: 30,
-      UP: 30,
-      RIGHT: 30,
-      DOWN: 30,
+      LEFT: 37,
+      UP: 38,
+      RIGHT: 39,
+      DOWN: 40,
 
       isDown: function(keyCode) {
         return this._pressed[keyCode];
@@ -126,7 +126,7 @@
       width: 800,
 	  score : 0,
 	  lives : 0,
-	  multiplier : 1,
+	  multiplier : 100,
 	  chocInARow : 0
 	  //updateInterval: setInterval(function() {}, 1000),
 	  //drawInterval: setInterval(function() {}, 1000)
@@ -166,12 +166,12 @@
 	  Game.context.fillStyle = bgTextColor;
 	  Game.context.shadowBlur = 2;
 	  Game.context.drawImage(bgImage, 0, 0,bgImage.width/Game.background.cols,bgImage.height/Game.background.rows, 0, 0, Game.width, Game.height);
-	  Game.context.font = "24px robot"; 
+	  Game.context.font = "24px impact"; 
 	  Game.context.textAlign = "center"; 
 	  Game.context.textBaseline = "hanging"; 
 	  Game.context.fillText("Use Arrow keys to move around.", Game.width/2, (Game.height/2) - 50);
 	  Game.context.fillText("Avoid the asteroids!", Game.width/2, (Game.height/2) - 25);
-	  Game.context.fillText("Pick up the blue fuel packs to increase your multiplier!", Game.width/2, (Game.height/2));
+	  Game.context.fillText("Pick up blue energy packs to increase your multiplier!", Game.width/2, (Game.height/2));
 	  Game.context.fillText("Pick up the glowing repair kits for extra lives!", Game.width/2, (Game.height/2)+25);
 	  Game.context.fillText("Press P to start or pause the game.", Game.width/2, (Game.height/2) + 100);
 	  Game.context.shadowBlur = 0;
@@ -243,14 +243,14 @@
 	  Game.context.font = "24px roboto"; 
 	  Game.context.textAlign = "right"; 
 	  Game.context.textBaseline = "hanging"; 
-	  Game.context.fillText("SCORE : "+Game.score, Game.width, 0);
+	  Game.context.fillText("Score:"+Game.score, Game.width, 0);
 	  Game.context.textAlign = "left"; 
 	  var accur = Math.floor(Game.score/(chocDropped-1) * 100);
 	  //if (chocDropped != 1) Game.context.fillText("Accuracy:"+accur+"%", 0, 0);
 	  //else Game.context.fillText("Accuracy:0%", 0, 0);
-	  Game.context.fillText("Multiplier : "+parseInt(Game.multiplier)+"x ("+Game.chocInARow+")", 0, 0);
+	  Game.context.fillText("Multiplier:"+parseInt(Game.multiplier)+"x ("+Game.chocInARow+")", 0, 0);
 	  Game.context.textAlign = "center"; 
-	  Game.context.fillText("Lives Remaining : "+Game.lives, Game.width/2, 0);
+	  Game.context.fillText("Lives Remaining:"+Game.lives, Game.width/2, 0);
 	  //Game.context.fillText("FPS:" + (1000/(performance.now() - lastDrawTime)), Game.width/2, 25);
 	  //var t3 = performance.now();
 	  //if ((t3 - t0) > 1)console.log("#103 - GameDraw took more than 1ms: " + (t3 - t0) + ".");
@@ -278,10 +278,10 @@
 	  }
 	  if (deadTimer == 1){
 		deadTimer = 0;
-		Game.context.font = "24px roboto"; 
+		Game.context.font = "24px serif"; 
 	    Game.context.textAlign = "center"; 
 	    Game.context.textBaseline = "hanging"; 
-	    Game.context.fillText("You Died...", Game.width/2, (Game.height/2) - 50);
+	    Game.context.fillText("You Died!", Game.width/2, (Game.height/2) - 50);
 	    Game.context.fillText("Your Score : " + Game.score + ".", Game.width/2, (Game.height/2) - 25);
 		if (Game.score > highscore) {
 			Game.context.fillText("Congrats! You beat your old highscore of : " + highscore, Game.width/2, (Game.height/2));
@@ -317,8 +317,8 @@
 	  chocSound.volume = eventVolume/2;
 	  chocSound.play();
 	  Game.score += parseInt(Game.multiplier)*1;
-	  Game.chocInARow++;
-	  Game.multiplier = 1 + (Game.chocInARow / 5);
+	  Game.chocInARow+10;
+	  Game.multiplier = 1 + (Game.chocInARow);
 	  
 	  chocbarOnScreen = false;
 	  eatTimer = animateTimer;
@@ -581,7 +581,7 @@
 	     this.y += this.speed;
 		 if (this.y > Game.height) {
 			 chocbarOnScreen = false;
-			 Game.multiplier = 1;
+			 Game.multiplier = 100;
 			 Game.chocInARow = 0;
 		 }
 	  }
