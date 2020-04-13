@@ -39,7 +39,7 @@
 	var bgRow = 11;
 	var bgTextColor = 'white';
 	var characterChangeTo = 'default';
-	var animateTimer = 22; //multiples of 6
+	var animateTimer = 18; //multiples of 6
 	var bgAnimateSpeed = 1; // 0.25 - 5
 	var eatTimer = 0;
 	var hurtTimer = 0;
@@ -126,7 +126,7 @@
       width: 800,
 	  score : 0,
 	  lives : 0,
-	  multiplier : 100,
+	  multiplier : 10,
 	  chocInARow : 0
 	  //updateInterval: setInterval(function() {}, 1000),
 	  //drawInterval: setInterval(function() {}, 1000)
@@ -191,7 +191,7 @@
       //Game.drawInterval = setInterval(Game.draw, 1000/Game.fps);
 	  Game.score = 0;
 	  Game.lives = 0;
-	  Game.multiplier = 100;
+	  Game.multiplier = 10;
 	  Game.chocInARow = 0;
 	  //var t1 = performance.now();
 	  //console.log("Game.start took " + ((t1 - t0)) + "ms.");
@@ -248,7 +248,7 @@
 	  var accur = Math.floor(Game.score/(chocDropped-1) * 100);
 	  //if (chocDropped != 1) Game.context.fillText("Accuracy:"+accur+"%", 0, 0);
 	  //else Game.context.fillText("Accuracy:0%", 0, 0);
-	  Game.context.fillText("Multiplier : "+parseInt(Game.multiplier)+"x ("+Game.chocInARow+")", 0, 0);
+	  Game.context.fillText("Multiplier : "+parseInt(Game.multiplier)+" x ("+Game.chocInARow+")", 0, 0);
 	  Game.context.textAlign = "center"; 
 	  Game.context.fillText("Lives Remaining : "+Game.lives, Game.width/2, 0);
 	  //Game.context.fillText("FPS:" + (1000/(performance.now() - lastDrawTime)), Game.width/2, 25);
