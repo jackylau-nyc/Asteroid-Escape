@@ -2,24 +2,24 @@
 
 html, body {
     width: 99%;
-    color: #111;
 }
 
 canvas { 
 	border: 1px solid; 
 }
+
 	
 input[type=text], input[type=password], input[type=file]  {
-    width: 50%;
+    width: 100%;
     padding: 10px 10px;
     margin: 4px 0;
     display: inline-block;
-    border: 1px solid #eee;
+    border: 1px solid #ccc;
     box-sizing: border-box;
 	border-radius: 15px 50px 30px;
 }
 
-.error {color: #ff0000;}
+.error {color: #FF0000;}
 
 table {
 	margin: 0 auto;
@@ -36,17 +36,17 @@ th, td {
     padding: 4px;
 }
 
-tr:nth-child(even){background-color: #111}
+tr:nth-child(even){background-color: #f2f2f2}
 
 th {
 	padding: 0px;
-    background-color: #222;
+    background-color: #70BF2B;
     color: white;
 }
 
 /* Set a style for all buttons */
 button {
-    color: #eee;
+    color: white;
 	padding: 10px 10px;
     margin: 0 0;
     border: none;
@@ -96,9 +96,9 @@ span.psw {
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #eee;
+    background-color: #F2F4F4;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #eee;
+    border: 1px solid #888;
     width: 500px; /* Could be more or less, depending on screen size */
 }
 
@@ -107,14 +107,14 @@ span.psw {
     position: absolute;
     right: 15px;
     top: 0;
-    color: #111;
+    color: #000;
     font-size: 35px;
     font-weight: bold;
 }
 
 .closeInTable {
 	float: right;
-    color: #111;
+    color: #000;
     font-size: 35px;
     font-weight: bold;
 }
@@ -129,30 +129,6 @@ span.psw {
 .closeInTable:focus {
     color: red;
     cursor: pointer;
-}
-
-.container1 {
-    display: flex;
-}
-
-.header {
-    height: 20vh;
-    width: 100vw;
-    background-color: #111;
-    color:#eee;  
-    text-align:center; 
-    font-family:'Impact';  
-    font-size:50px
-}
-
-.menu {
-    height: 80vh;
-    width:40vw;
-    background-color: #111;
-    color: #eee;
-    text-align: center;
-    font-family: 'Impact';
-    font-size:20px;
 }
 
 /* Add Zoom Animation */
