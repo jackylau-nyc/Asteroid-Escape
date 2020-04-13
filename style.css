@@ -15,7 +15,6 @@ input[type=text], input[type=password], input[type=file]  {
     padding: 10px 10px;
     margin: 4px 0;
     display: inline-block;
-    border: 1px solid #eee;
     box-sizing: border-box;
 	border-radius: 15px 50px 30px;
 }
