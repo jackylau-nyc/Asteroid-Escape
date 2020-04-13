@@ -503,11 +503,11 @@
     };
 
     Player.prototype.moveLeft = function() {
-      if (this.x>0) this.x -= (10 + difficulty/2);
+      if (this.x>0) this.x -= (10 + difficulty/200);
     };
 
     Player.prototype.moveRight = function() {
-      if (this.x<(Game.width-this.width)) this.x += (10 + difficulty/2);
+      if (this.x<(Game.width-this.width)) this.x += (10 + difficulty/200);
     };
 
     Player.prototype.moveUp = function() {
@@ -515,7 +515,7 @@
     };
 
     Player.prototype.moveDown = function() {
-      if (this.y<(Game.height-this.height)) this.y += (10 + difficulty/2);
+      if (this.y<(Game.height-this.height)) this.y += (10 + difficulty/200);
     };
     
     Player.prototype.update = function() {
@@ -566,7 +566,7 @@
 	  }
 	  this.centerx = this.x + (this.width/2);
 	  this.centery = this.y + (this.height/2);
-	  if (changeDifficulty == true) this.speed = this.originalSpeed + (difficulty/2);
+	  if (changeDifficulty == true) this.speed = this.originalSpeed + (difficulty/200);
 	  this.animateFrame += 0.2;
     };
 	
@@ -587,7 +587,7 @@
 	  }
 	  this.centerx = this.x + (this.width/2);
 	  this.centery = this.y + (this.height/2);
-	  if (changeDifficulty == true) this.speed = this.originalSpeed + (difficulty/3);
+	  if (changeDifficulty == true) this.speed = this.originalSpeed + (difficulty/300);
 	  this.animateFrame += 0.5;
     };
 	
@@ -604,7 +604,7 @@
 				//this.speed = this.originalSpeed + (difficulty/5);
 			//}
 			if (changeDifficulty) {
-				this.speed = this.originalSpeed + (difficulty/5);
+				this.speed = this.originalSpeed + (difficulty/500);
 			}
 		 }
 	     this.y += this.speed;
