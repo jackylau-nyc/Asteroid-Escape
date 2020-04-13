@@ -318,7 +318,7 @@
 	  chocSound.play();
 	  Game.score += parseInt(Game.multiplier)*50;
 	  Game.chocInARow+10;
-	  Game.multiplier = 50 + (Game.chocInARow*10);
+	  Game.multiplier = 50 + (Game.chocInARow*1);
 	  
 	  chocbarOnScreen = false;
 	  eatTimer = animateTimer;
