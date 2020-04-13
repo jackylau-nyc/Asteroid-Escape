@@ -22,7 +22,7 @@
 	var heartOnScreen = false;
 	var chocDropped = 0;
 	var difficulty = 0;
-	var difficultyFactor = 1;
+	var difficultyFactor = 15;
 	var deadTimer = -1;
 	var highscore = 0;
 	var character = new Image();
@@ -40,7 +40,7 @@
 	var bgTextColor = 'white';
 	var characterChangeTo = 'default';
 	var animateTimer = 22; //multiples of 6
-	var bgAnimateSpeed = 0; // 0.25 - 5
+	var bgAnimateSpeed = 1; // 0.25 - 5
 	var eatTimer = 0;
 	var hurtTimer = 0;
 	var lifeTimer = 0;
@@ -58,7 +58,7 @@
 			chocbarOnScreen = false;
 			heartOnScreen = false;
 			chocDropped = 0;
-			difficulty = 1;
+			difficulty = 0;
 			bgMusic.pause();
 			return;
 		}
@@ -126,8 +126,8 @@
       width: 800,
 	  score : 0,
 	  lives : 0,
-	  multiplier : 50,
-	  chocInARow : 1
+	  multiplier : 100,
+	  chocInARow : 0
 	  //updateInterval: setInterval(function() {}, 1000),
 	  //drawInterval: setInterval(function() {}, 1000)
     };
@@ -191,8 +191,8 @@
       //Game.drawInterval = setInterval(Game.draw, 1000/Game.fps);
 	  Game.score = 0;
 	  Game.lives = 0;
-	  Game.multiplier = 50;
-	  Game.chocInARow = 1;
+	  Game.multiplier = 100;
+	  Game.chocInARow = 0;
 	  //var t1 = performance.now();
 	  //console.log("Game.start took " + ((t1 - t0)) + "ms.");
     };
@@ -248,7 +248,7 @@
 	  var accur = Math.floor(Game.score/(chocDropped-1) * 100);
 	  //if (chocDropped != 1) Game.context.fillText("Accuracy:"+accur+"%", 0, 0);
 	  //else Game.context.fillText("Accuracy:0%", 0, 0);
-	  Game.context.fillText("Multiplier : "+parseInt(Game.multiplier)+" x ("+Game.chocInARow+")", 0, 0);
+	  Game.context.fillText("Multiplier : "+parseInt(Game.multiplier)+"x ("+Game.chocInARow+")", 0, 0);
 	  Game.context.textAlign = "center"; 
 	  Game.context.fillText("Lives Remaining : "+Game.lives, Game.width/2, 0);
 	  //Game.context.fillText("FPS:" + (1000/(performance.now() - lastDrawTime)), Game.width/2, 25);
@@ -278,7 +278,7 @@
 	  }
 	  if (deadTimer == 1){
 		deadTimer = 0;
-		Game.context.font = "24px roboto"; 
+		Game.context.font = "24px serif"; 
 	    Game.context.textAlign = "center"; 
 	    Game.context.textBaseline = "hanging"; 
 	    Game.context.fillText("You Died!", Game.width/2, (Game.height/2) - 50);
@@ -316,9 +316,9 @@
 	  var chocSound = chocPickUpSound.cloneNode();
 	  chocSound.volume = eventVolume/2;
 	  chocSound.play();
-	  Game.score += parseInt(Game.multiplier)*50;
-	  Game.chocInARow+10;
-	  Game.multiplier = 50 + (Game.chocInARow*1);
+	  Game.score += parseInt(Game.multiplier)*1;
+	  Game.chocInARow++;
+	  Game.multiplier = 1 + (Game.chocInARow / 5);
 	  
 	  chocbarOnScreen = false;
 	  eatTimer = animateTimer;
@@ -386,7 +386,7 @@
 	  this.height = this.width;
 	  this.x = Math.ceil(Math.random() * (Game.width - this.width/2));
 	  this.y = -10;
-	  this.originalSpeed = 3;
+	  this.originalSpeed = 6;
 	  this.speed = this.originalSpeed;
 	  this.centerx = this.x + (this.width/2);
 	  this.centery = this.y + (this.height/2);
@@ -398,7 +398,7 @@
 	  this.height = this.width;
 	  this.x = Math.ceil(Math.random() * (Game.width - this.width/2));
 	  this.y = -10;
-	  this.originalSpeed = 2;
+	  this.originalSpeed = 5;
 	  this.speed = this.originalSpeed;
 	  this.centerx = this.x + (this.width/2);
 	  this.centery = this.y + (this.height/2);
@@ -410,7 +410,7 @@
 	  this.height = this.width;
 	  this.x = Math.ceil(Math.random() * (Game.width - this.width/2));
 	  this.y = -10;
-	  this.originalSpeed = 1;
+	  this.originalSpeed = 3;
 	  this.speed = this.originalSpeed;
 	  this.centerx = this.x + (this.width/2);
 	  this.centery = this.y + (this.height/2);
@@ -503,11 +503,11 @@
     };
 
     Player.prototype.moveLeft = function() {
-      if (this.x>0) this.x -= (10 + difficulty/200);
+      if (this.x>0) this.x -= (10 + difficulty/2);
     };
 
     Player.prototype.moveRight = function() {
-      if (this.x<(Game.width-this.width)) this.x += (10 + difficulty/200);
+      if (this.x<(Game.width-this.width)) this.x += (10 + difficulty/2);
     };
 
     Player.prototype.moveUp = function() {
@@ -515,7 +515,7 @@
     };
 
     Player.prototype.moveDown = function() {
-      if (this.y<(Game.height-this.height)) this.y += (10 + difficulty/200);
+      if (this.y<(Game.height-this.height)) this.y += (10 + difficulty/2);
     };
     
     Player.prototype.update = function() {
@@ -566,7 +566,7 @@
 	  }
 	  this.centerx = this.x + (this.width/2);
 	  this.centery = this.y + (this.height/2);
-	  if (changeDifficulty == true) this.speed = this.originalSpeed + (difficulty/200);
+	  if (changeDifficulty == true) this.speed = this.originalSpeed + (difficulty/2);
 	  this.animateFrame += 0.2;
     };
 	
@@ -581,13 +581,13 @@
 	     this.y += this.speed;
 		 if (this.y > Game.height) {
 			 chocbarOnScreen = false;
-			 Game.multiplier = 50;
-			 Game.chocInARow = 1;
+			 Game.multiplier = 1;
+			 Game.chocInARow = 0;
 		 }
 	  }
 	  this.centerx = this.x + (this.width/2);
 	  this.centery = this.y + (this.height/2);
-	  if (changeDifficulty == true) this.speed = this.originalSpeed + (difficulty/300);
+	  if (changeDifficulty == true) this.speed = this.originalSpeed + (difficulty/3);
 	  this.animateFrame += 0.5;
     };
 	
@@ -604,7 +604,7 @@
 				//this.speed = this.originalSpeed + (difficulty/5);
 			//}
 			if (changeDifficulty) {
-				this.speed = this.originalSpeed + (difficulty/500);
+				this.speed = this.originalSpeed + (difficulty/5);
 			}
 		 }
 	     this.y += this.speed;
