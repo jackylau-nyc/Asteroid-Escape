@@ -104,8 +104,6 @@
 			<source src="health.mp3" type="audio/mp3">
 			Your browser does not support the audio element.
 		</audio>
-
-<tr><th colspan="3" style="height:25px; text-align:right">version 3.1 &nbsp </th></tr>
 </table>
 </div>
   </body>
