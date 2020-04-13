@@ -40,7 +40,7 @@
 	var bgTextColor = 'white';
 	var characterChangeTo = 'default';
 	var animateTimer = 22; //multiples of 6
-	var bgAnimateSpeed = 1; // 0.25 - 5
+	var bgAnimateSpeed = 0; // 0.25 - 5
 	var eatTimer = 0;
 	var hurtTimer = 0;
 	var lifeTimer = 0;
@@ -248,9 +248,9 @@
 	  var accur = Math.floor(Game.score/(chocDropped-1) * 100);
 	  //if (chocDropped != 1) Game.context.fillText("Accuracy:"+accur+"%", 0, 0);
 	  //else Game.context.fillText("Accuracy:0%", 0, 0);
-	  Game.context.fillText("Multiplier:"+parseInt(Game.multiplier)+"x ("+Game.chocInARow+")", 0, 0);
+	  Game.context.fillText("Multiplier : "+parseInt(Game.multiplier)+" x ("+Game.chocInARow+")", 0, 0);
 	  Game.context.textAlign = "center"; 
-	  Game.context.fillText("Lives Remaining:"+Game.lives, Game.width/2, 0);
+	  Game.context.fillText("Lives Remaining : "+Game.lives, Game.width/2, 0);
 	  //Game.context.fillText("FPS:" + (1000/(performance.now() - lastDrawTime)), Game.width/2, 25);
 	  //var t3 = performance.now();
 	  //if ((t3 - t0) > 1)console.log("#103 - GameDraw took more than 1ms: " + (t3 - t0) + ".");
@@ -278,7 +278,7 @@
 	  }
 	  if (deadTimer == 1){
 		deadTimer = 0;
-		Game.context.font = "24px serif"; 
+		Game.context.font = "24px roboto"; 
 	    Game.context.textAlign = "center"; 
 	    Game.context.textBaseline = "hanging"; 
 	    Game.context.fillText("You Died!", Game.width/2, (Game.height/2) - 50);
@@ -318,7 +318,7 @@
 	  chocSound.play();
 	  Game.score += parseInt(Game.multiplier)*1;
 	  Game.chocInARow+10;
-	  Game.multiplier = 1 + (Game.chocInARow);
+	  Game.multiplier = 100 + (Game.chocInARow*100);
 	  
 	  chocbarOnScreen = false;
 	  eatTimer = animateTimer;
@@ -386,7 +386,7 @@
 	  this.height = this.width;
 	  this.x = Math.ceil(Math.random() * (Game.width - this.width/2));
 	  this.y = -10;
-	  this.originalSpeed = 6;
+	  this.originalSpeed = 3;
 	  this.speed = this.originalSpeed;
 	  this.centerx = this.x + (this.width/2);
 	  this.centery = this.y + (this.height/2);
@@ -398,7 +398,7 @@
 	  this.height = this.width;
 	  this.x = Math.ceil(Math.random() * (Game.width - this.width/2));
 	  this.y = -10;
-	  this.originalSpeed = 5;
+	  this.originalSpeed = 2;
 	  this.speed = this.originalSpeed;
 	  this.centerx = this.x + (this.width/2);
 	  this.centery = this.y + (this.height/2);
@@ -410,7 +410,7 @@
 	  this.height = this.width;
 	  this.x = Math.ceil(Math.random() * (Game.width - this.width/2));
 	  this.y = -10;
-	  this.originalSpeed = 3;
+	  this.originalSpeed = 1;
 	  this.speed = this.originalSpeed;
 	  this.centerx = this.x + (this.width/2);
 	  this.centery = this.y + (this.height/2);
