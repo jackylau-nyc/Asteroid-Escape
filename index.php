@@ -24,8 +24,8 @@
 				<input type="text" placeholder="Enter Username" value = "<?php echo $username ?>" name="uname" id="loginUsername" class ="loginField" onFocus="if (deadTimer == -1) pauseGame(); document.getElementById('logInResponse').innerHTML='';" autofocus>
 				<input type="password" placeholder="Enter Password" value = "<?php echo $password ?>" name="psw" id="loginPassword" class ="loginField" onFocus="if (deadTimer == -1) pauseGame(); document.getElementById('logInResponse').innerHTML='';">
 				<span class="error"><div id="logInResponse"></div></span>
-				<button  style= "float:right; background-color: #f44336;" type="button" onclick="logIn()" class="signupbtn">Log In</button>
-				<button style= "float:left; background-color: #98AFC7;" id = "signUpbtn" onclick="if (deadTimer == -1) pauseGame(); document.getElementById('signUp').style.display='block'; listening = false;" style="width:auto;">Sign Up</button>
+				<button  style= "float:right; background-color: #eee;" type="button" onclick="logIn()" class="signupbtn">Log In</button>
+				<button style= "float:left; background-color: #222;" id = "signUpbtn" onclick="if (deadTimer == -1) pauseGame(); document.getElementById('signUp').style.display='block'; listening = false;" style="width:auto;">Sign Up</button>
 			 </div>
 			 <div id = "userInfo">
 			 </div>
@@ -81,8 +81,8 @@
 				  <span class="error"><div id="signUpResponse"></div></span>
 				  
 				  <div  id = "signUpFormBtns" class="clearfix">
-					<button type="button" style= "float:left; background-color: #98AFC7;" onclick="document.getElementById('signUp').style.display='none'; listening = true;">Cancel</button>
-					<button type="button" style= "float:right; background-color: #f44336;" onclick="signUp()" class="signupbtn">Sign Up</button>
+					<button type="button" style= "float:left; background-color: #222;" onclick="document.getElementById('signUp').style.display='none'; listening = true;">Cancel</button>
+					<button type="button" style= "float:right; background-color: #eee;" onclick="signUp()" class="signupbtn">Sign Up</button>
 				  </div>
 				</div>
 			  </form>

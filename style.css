@@ -14,7 +14,7 @@ input[type=text], input[type=password], input[type=file]  {
     padding: 10px 10px;
     margin: 4px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px solid #eee;
     box-sizing: border-box;
 	border-radius: 15px 50px 30px;
 }
@@ -36,11 +36,11 @@ th, td {
     padding: 4px;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(even){background-color: #eee}
 
 th {
 	padding: 0px;
-    background-color: #70BF2B;
+    background-color: #222;
     color: white;
 }
 
@@ -96,9 +96,9 @@ span.psw {
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #F2F4F4;
+    background-color: #eee;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
+    border: 1px solid #222;
     width: 500px; /* Could be more or less, depending on screen size */
 }
 
@@ -107,14 +107,14 @@ span.psw {
     position: absolute;
     right: 15px;
     top: 0;
-    color: #000;
+    color: #111;
     font-size: 35px;
     font-weight: bold;
 }
 
 .closeInTable {
 	float: right;
-    color: #000;
+    color: #111;
     font-size: 35px;
     font-weight: bold;
 }

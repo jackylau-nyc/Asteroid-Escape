@@ -166,12 +166,12 @@
 	  Game.context.fillStyle = bgTextColor;
 	  Game.context.shadowBlur = 2;
 	  Game.context.drawImage(bgImage, 0, 0,bgImage.width/Game.background.cols,bgImage.height/Game.background.rows, 0, 0, Game.width, Game.height);
-	  Game.context.font = "24px impact"; 
+	  Game.context.font = "24px roboto"; 
 	  Game.context.textAlign = "center"; 
 	  Game.context.textBaseline = "hanging"; 
 	  Game.context.fillText("Use Arrow keys to move around.", Game.width/2, (Game.height/2) - 50);
 	  Game.context.fillText("Avoid the asteroids!", Game.width/2, (Game.height/2) - 25);
-	  Game.context.fillText("Pick up blue energy packs to increase your multiplier!", Game.width/2, (Game.height/2));
+	  Game.context.fillText("Pick up 5 blue energy packs in a row to increase your multiplier!", Game.width/2, (Game.height/2));
 	  Game.context.fillText("Pick up the glowing repair kits for extra lives!", Game.width/2, (Game.height/2)+25);
 	  Game.context.fillText("Press P to start or pause the game.", Game.width/2, (Game.height/2) + 100);
 	  Game.context.shadowBlur = 0;
