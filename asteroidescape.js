@@ -127,7 +127,7 @@
 	  score : 0,
 	  lives : 0,
 	  multiplier : 10,
-	  chocInARow : 0
+	  chocInARow : 1
 	  //updateInterval: setInterval(function() {}, 1000),
 	  //drawInterval: setInterval(function() {}, 1000)
     };
@@ -192,7 +192,7 @@
 	  Game.score = 0;
 	  Game.lives = 0;
 	  Game.multiplier = 10;
-	  Game.chocInARow = 0;
+	  Game.chocInARow = 1;
 	  //var t1 = performance.now();
 	  //console.log("Game.start took " + ((t1 - t0)) + "ms.");
     };
@@ -582,7 +582,7 @@
 		 if (this.y > Game.height) {
 			 chocbarOnScreen = false;
 			 Game.multiplier = 10;
-			 Game.chocInARow = 0;
+			 Game.chocInARow = 1;
 		 }
 	  }
 	  this.centerx = this.x + (this.width/2);
