@@ -22,7 +22,7 @@
 	var heartOnScreen = false;
 	var chocDropped = 0;
 	var difficulty = 0;
-	var difficultyFactor = 15;
+	var difficultyFactor = 1;
 	var deadTimer = -1;
 	var highscore = 0;
 	var character = new Image();
@@ -58,7 +58,7 @@
 			chocbarOnScreen = false;
 			heartOnScreen = false;
 			chocDropped = 0;
-			difficulty = 0;
+			difficulty = 1;
 			bgMusic.pause();
 			return;
 		}
