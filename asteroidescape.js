@@ -14,9 +14,9 @@
 	}, false);
 	var eventVolume = 0.2;
 	bgMusic.volume = eventVolume/3;
-	var chocPickUpSound = new Audio('NFF-glassy-tap-02.wav');
+	var chocPickUpSound = new Audio('health.mp3');
 	var heartPickUpSound = new Audio('health-kit.mp3');
-	var fireballPickUpSound = new Audio('NFF-explode.wav');
+	var fireballPickUpSound = new Audio('death.mp3');
 	var androidDeadSound = new Audio('NFF-slowdown.wav');
 	//var chocPickUpSound = document.getElementById("chocPickUp"); 
 	var heartOnScreen = false;
@@ -166,11 +166,11 @@
 	  Game.context.fillStyle = bgTextColor;
 	  Game.context.shadowBlur = 2;
 	  Game.context.drawImage(bgImage, 0, 0,bgImage.width/Game.background.cols,bgImage.height/Game.background.rows, 0, 0, Game.width, Game.height);
-	  Game.context.font = "24px serif"; 
+	  Game.context.font = "24px impact"; 
 	  Game.context.textAlign = "center"; 
 	  Game.context.textBaseline = "hanging"; 
 	  Game.context.fillText("Use Arrow keys to move around.", Game.width/2, (Game.height/2) - 50);
-	  Game.context.fillText("Pick up the fuel packs and avoid the asteroids.", Game.width/2, (Game.height/2) - 25);
+	  Game.context.fillText("Avoid the asteroids!", Game.width/2, (Game.height/2) - 25);
 	  Game.context.fillText("Pick up fuel packs to increase your multiplier!", Game.width/2, (Game.height/2));
 	  Game.context.fillText("Pick up the repair kits for extra lives!", Game.width/2, (Game.height/2)+25);
 	  Game.context.fillText("Press P to start or pause the game.", Game.width/2, (Game.height/2) + 100);
