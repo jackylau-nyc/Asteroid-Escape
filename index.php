@@ -101,7 +101,7 @@
 		
 	</tr>
 		<audio id="chocPickUp">
-			<source src="NFF-glassy-tap-02.wav" type="audio/wav">
+			<source src="health.mp3" type="audio/mp3">
 			Your browser does not support the audio element.
 		</audio>
 

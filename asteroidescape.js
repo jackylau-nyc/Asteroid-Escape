@@ -16,8 +16,8 @@
 	bgMusic.volume = eventVolume/3;
 	var chocPickUpSound = new Audio('health.mp3');
 	var heartPickUpSound = new Audio('health-kit.mp3');
-	var fireballPickUpSound = new Audio('death.mp3');
-	var androidDeadSound = new Audio('NFF-slowdown.wav');
+	var fireballPickUpSound = new Audio('hit.mp3');
+	var androidDeadSound = new Audio('death.mp3');
 	//var chocPickUpSound = document.getElementById("chocPickUp"); 
 	var heartOnScreen = false;
 	var chocDropped = 0;
