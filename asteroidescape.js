@@ -126,7 +126,7 @@
       width: 800,
 	  score : 0,
 	  lives : 0,
-	  multiplier : 100,
+	  multiplier : 10,
 	  chocInARow : 0
 	  //updateInterval: setInterval(function() {}, 1000),
 	  //drawInterval: setInterval(function() {}, 1000)
@@ -191,7 +191,7 @@
       //Game.drawInterval = setInterval(Game.draw, 1000/Game.fps);
 	  Game.score = 0;
 	  Game.lives = 0;
-	  Game.multiplier = 100;
+	  Game.multiplier = 10;
 	  Game.chocInARow = 0;
 	  //var t1 = performance.now();
 	  //console.log("Game.start took " + ((t1 - t0)) + "ms.");
@@ -318,7 +318,7 @@
 	  chocSound.play();
 	  Game.score += parseInt(Game.multiplier)*1;
 	  Game.chocInARow+10;
-	  Game.multiplier = 100 + (Game.chocInARow*100);
+	  Game.multiplier = 10 + (Game.chocInARow*10);
 	  
 	  chocbarOnScreen = false;
 	  eatTimer = animateTimer;
@@ -581,7 +581,7 @@
 	     this.y += this.speed;
 		 if (this.y > Game.height) {
 			 chocbarOnScreen = false;
-			 Game.multiplier = 100;
+			 Game.multiplier = 10;
 			 Game.chocInARow = 0;
 		 }
 	  }
