@@ -25,7 +25,7 @@
             die( mysqli_error() );
          }
 		 if (mysqli_num_rows($result) == 0) {
-			echo 'Credentials do not match';
+			echo 'User does not exist';
 			mysqli_close( $database );
 			die();
 		}
@@ -34,7 +34,7 @@
 		
 		
 		if ($row['Password'] != $pass){
-			echo 'Credentials do not match';
+			echo 'Incorrect Password';
 			mysqli_close( $database );
 			die();
 		}
