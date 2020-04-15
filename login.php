@@ -8,7 +8,7 @@
 		 $pass = ($_POST["password"]);
 		 
 		 if (empty($user) || empty($pass)){
-			echo 'Enter Credentials!';
+			echo 'Enter Credentials';
 			die();
 		 }
 		 
@@ -21,11 +21,11 @@
          // query database
 		  if ( !( $result = mysqli_query($database, $query) ) ) 
          {
-            print( "<p>Could not execute query!</p>" );
+            print( "<p>Could not execute query</p>" );
             die( mysqli_error() );
          }
 		 if (mysqli_num_rows($result) == 0) {
-			echo 'Credentials do not match!';
+			echo 'Credentials do not match';
 			mysqli_close( $database );
 			die();
 		}
@@ -34,7 +34,7 @@
 		
 		
 		if ($row['Password'] != $pass){
-			echo 'Credentials do not match!';
+			echo 'Credentials do not match';
 			mysqli_close( $database );
 			die();
 		}

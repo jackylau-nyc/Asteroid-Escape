@@ -28,22 +28,22 @@
 		 */
 		 
 		 if ( preg_match('/\s/',$user) ){
-			 echo 'Username cannot have blank spaces!';
+			 echo 'Username cannot have blank spaces';
 			die();
 		 }
 		 
 		 if ( strlen($user) < 5 ){
-			 echo 'Username must be at least 5 characters long!';
+			 echo 'Username must be at least 5 characters long';
 			die();
 		 }
 		 
 		 if ( strlen($pass) < 5 ){
-			 echo 'Password must be at least 5 characters long!';
+			 echo 'Password must be at least 5 characters long';
 			die();
 		 }
 		 
 		 if ($pass != $passR){
-			 echo 'Passwords Do Not Match!';
+			 echo 'Passwords do not match';
 			 die();
 		 }
 		 
@@ -70,11 +70,11 @@
          // query database
 		  if ( !( $result = mysqli_query($database, $query) ) ) 
          {
-            print( "<p>Could not execute query!</p>" );
+            print( "<p>Could not execute query</p>" );
             die( mysqli_error() );
          }
 		 if (mysqli_num_rows($result) > 0) {
-			echo 'Select a different username!';
+			echo 'That username is taken';
 			mysqli_close( $database );
 			die();
 		}
@@ -87,7 +87,7 @@
 		  // query Employee database
 		  if ( !( $result = mysqli_query($database, $query) ) ) 
          {
-            print( "<p>Could not execute query!</p>" );
+            print( "<p>Could not execute query</p>" );
             die( mysqli_error() . "</body></html>" );
          }
 		 if (!$result) {

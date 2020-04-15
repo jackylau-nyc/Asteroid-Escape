@@ -126,7 +126,7 @@
       width: 800,
 	  score : 0,
 	  lives : 0,
-	  multiplier : 10,
+	  multiplier : 1,
 	  chocInARow : 0
 	  //updateInterval: setInterval(function() {}, 1000),
 	  //drawInterval: setInterval(function() {}, 1000)
@@ -191,7 +191,7 @@
       //Game.drawInterval = setInterval(Game.draw, 1000/Game.fps);
 	  Game.score = 0;
 	  Game.lives = 0;
-	  Game.multiplier = 10;
+	  Game.multiplier = 1;
 	  Game.chocInARow = 0;
 	  //var t1 = performance.now();
 	  //console.log("Game.start took " + ((t1 - t0)) + "ms.");

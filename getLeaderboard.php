@@ -15,7 +15,7 @@
          // query database
 		  if ( !( $result = mysqli_query($database, $query) ) ) 
          {
-            print( "<p>Could not execute query!</p>" );
+            print( "<p>Could not execute query</p>" );
             die();
          }
 		 

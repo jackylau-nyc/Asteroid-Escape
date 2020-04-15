@@ -23,7 +23,7 @@
          // query database
 		  if ( !( $result = mysqli_query($database, $query) ) ) 
          {
-            echo( "Could not execute query!" );
+            echo( "Could not execute query" );
             die();
          }
 		 if (mysqli_num_rows($result) == 0) {
