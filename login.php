@@ -33,7 +33,7 @@
 		$row = mysqli_fetch_assoc($result);
 		
 		
-		if ($row['Password'] != $pass){
+		if ($row['password'] != $pass){
 			echo 'Incorrect Password';
 			mysqli_close( $database );
 			die();
