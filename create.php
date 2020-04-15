@@ -3,7 +3,7 @@
 	include 'databaseLogin.php';	
 	
 	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbName);
+	$conn = new mysqli($servername, $username, $pass, $dbName);
 	// Check connection
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
@@ -25,7 +25,7 @@
 	id INT(11) AUTO_INCREMENT PRIMARY KEY, 
 	Email VARCHAR(30) NOT NULL,
 	Username VARCHAR(30) NOT NULL,
-	Password VARCHAR(30) NOT NULL,
+	Pass VARCHAR(30) NOT NULL,
 	Highscore INT(20) DEFAULT 0
 	)";
 
@@ -39,13 +39,13 @@
 	$conn->close();
 	
 	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbName);
+	$conn = new mysqli($servername, $username, $pass, $dbName);
 	// Check connection
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	} 
 
-	$sql = "INSERT INTO player (Email, Username, Password, Highscore)
+	$sql = "INSERT INTO player (Email, Username, Pass, Highscore)
 	VALUES ('john_doe@aol.com', 'John_Doe', 'wordpass', 10)";
 
 	if ($conn->query($sql) === TRUE) {
@@ -55,7 +55,7 @@
 	}
 	echo '<br>';
 	
-	$sql = "INSERT INTO player (Email, Username, Password, Highscore)
+	$sql = "INSERT INTO player (Email, Username, Pass, Highscore)
 	VALUES ('kevin_chen@yahoo.com', 'Kevin_Chen', 'wordpass', 15)";
 
 	if ($conn->query($sql) === TRUE) {
