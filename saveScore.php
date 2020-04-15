@@ -18,7 +18,7 @@
          if ( !( $database = mysqli_connect($servername,$username,$password,$dbName) ) ) die( "Could not connect to database" );
    
 		
-		$query = "SELECT * FROM player WHERE Username = '". $user . "'";
+		$query = "SELECT * FROM player WHERE username = '". $user . "'";
 		
          // query database
 		  if ( !( $result = mysqli_query($database, $query) ) ) 
@@ -35,13 +35,13 @@
 		$row = mysqli_fetch_assoc($result);
 		
 		
-		if ($row['Password'] != $pass){
+		if ($row['password'] != $pass){
 			echo '-1';
 			mysqli_close( $database );
 			die();
 		}
-		else if ($score > $row['Highscore']){
-				$query = "UPDATE player SET Highscore ='". $score ."' WHERE id = '". $row['id'] . "'";
+		else if ($score > $row['highscore']){
+				$query = "UPDATE player SET highscore ='". $score ."' WHERE id = '". $row['id'] . "'";
 				
 				  if ( !( $result = mysqli_query($database, $query) ) ) {
 					echo( "Could not execute query!" );
@@ -49,7 +49,7 @@
 				  }
 				  echo 'Saved Successfully.';			  	
 		} else {
-			echo "Higher Score: '". $row['Highscore'] ."'";
+			echo "Higher Score: '". $row['highscore'] ."'";
 		}
 		
 		mysqli_close( $database );
