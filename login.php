@@ -16,7 +16,7 @@
          if ( !( $database = mysqli_connect($servername,$username,$password,$dbName) ) ) die( "Could not connect to database" );
    
 		
-		$query = "SELECT * FROM player WHERE Username = '". $user . "'";
+		$query = "SELECT * FROM player WHERE username = '". $user . "'";
 		
          // query database
 		  if ( !( $result = mysqli_query($database, $query) ) ) 

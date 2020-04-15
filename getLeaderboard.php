@@ -10,7 +10,7 @@
          if ( !( $database = mysqli_connect($servername,$username,$password,$dbName) ) ) die( "Could not connect to database" );
    
 		
-		$query = "SELECT * FROM player ORDER BY Highscore DESC limit 10";
+		$query = "SELECT * FROM player ORDER BY highscore DESC limit 10";
 		
          // query database
 		  if ( !( $result = mysqli_query($database, $query) ) ) 
@@ -28,11 +28,11 @@
 				//echo 'inside while loop';
 				echo "<tr>";
 				if ($rowNumber < 4){
-					echo '<td style="text-align:left; width:215px"><b>' . strtolower($row['Username']) . '</b></td>';
-					echo '<td style="text-align:right; width:35px"><b>' . $row['Highscore'] . '</b></td>';
+					echo '<td style="text-align:left; width:215px"><b>' . strtolower($row['username']) . '</b></td>';
+					echo '<td style="text-align:right; width:35px"><b>' . $row['highscore'] . '</b></td>';
 				} else {
-					echo '<td style="text-align:left; width:215px">' . strtolower($row['Username']) . '</td>';
-					echo '<td style="text-align:right; width:35px">' . $row['Highscore'] . '</td>';
+					echo '<td style="text-align:left; width:215px">' . strtolower($row['username']) . '</td>';
+					echo '<td style="text-align:right; width:35px">' . $row['highscore'] . '</td>';
 				}
 				echo "</tr>";
 				$rowNumber++;
