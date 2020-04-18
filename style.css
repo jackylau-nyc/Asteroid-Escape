@@ -2,8 +2,8 @@
 
 html, body {
     width: 99%;
-    color:#111;
-    background-color: #eee;
+    color:#fff;
+    background-color: #111;
     font-family: impact;
 }
 
@@ -40,8 +40,8 @@ tr:nth-child(even){background-color: #eee}
 
 th {
 	padding: 0px;
-    background-color: #ddd;
-    color: black;
+    background-color: #eee;
+    color: #eee;
 }
 
 /* Set a style for all buttons */
