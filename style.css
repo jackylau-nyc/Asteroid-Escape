@@ -41,7 +41,7 @@ tr:nth-child(even){background-color: #111}
 th {
 	padding: 0px;
     background-color: #111;
-    color: #111;
+    color: #eee;
 }
 
 /* Set a style for all buttons */
