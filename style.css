@@ -2,7 +2,7 @@
 
 html, body {
     width: 99%;
-    color:#111;
+    color:#eee;
     background-color: #eee;
 }
 
@@ -35,11 +35,11 @@ th, td {
     padding: 4px;
 }
 
-tr:nth-child(even){background-color: #eee}
+tr:nth-child(even){background-color: #222}
 
 th {
 	padding: 0px;
-    background-color: #222;
+    background-color: #333;
     color: white;
 }
 
