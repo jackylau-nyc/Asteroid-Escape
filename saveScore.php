@@ -41,7 +41,7 @@
 			die();
 		}
 		else if ($score > $row['highscore']){
-				$query = "UPDATE player SET highscore ='". $score ."' WHERE user = '". $row['user'] . "'";
+				$query = "UPDATE player SET highscore ='". $score ."' WHERE username = '". $row['username'] . "'";
 				
 				  if ( !( $result = mysqli_query($database, $query) ) ) {
 					echo( "Could not execute query!" );
