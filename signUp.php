@@ -65,7 +65,7 @@
 		}
 		*/
 		
-		$query = "SELECT * FROM player WHERE Username = '". $user . "'";
+		$query = "SELECT * FROM player WHERE username = '". $user . "'";
 		
          // query database
 		  if ( !( $result = mysqli_query($database, $query) ) ) 
@@ -81,8 +81,8 @@
 		
 		
 		 
-		 $query = "INSERT INTO player (Email, Username, Password)
-					VALUES ('" . $email . "', '" . $user . "' , '" . $pass . "')";
+		 $query = "INSERT INTO player (email, username, password, numPlayed, numBatts)
+					VALUES ('" . $email . "', '" . $user . "' , '" . $pass . "', 0, 0)";
 		 
 		  // query Employee database
 		  if ( !( $result = mysqli_query($database, $query) ) ) 

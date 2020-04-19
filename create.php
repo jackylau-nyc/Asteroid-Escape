@@ -23,10 +23,10 @@
 	// sql to create table
 	$sql = "CREATE TABLE player (
 	id INT(11) AUTO_INCREMENT PRIMARY KEY, 
-	Email VARCHAR(30) NOT NULL,
-	Username VARCHAR(30) NOT NULL,
-	Password VARCHAR(30) NOT NULL,
-	Highscore INT(20) DEFAULT 0
+	email VARCHAR(30) NOT NULL,
+	username VARCHAR(30) NOT NULL,
+	password VARCHAR(30) NOT NULL,
+	highscore INT(20) DEFAULT 0
 	)";
 
 	if ($conn->query($sql) === TRUE) {
@@ -45,7 +45,7 @@
 		die("Connection failed: " . $conn->connect_error);
 	} 
 
-	$sql = "INSERT INTO player (Email, Username, Password, Highscore)
+	$sql = "INSERT INTO player (email, username, password, highscore)
 	VALUES ('john_doe@aol.com', 'John_Doe', 'wordpass', 10)";
 
 	if ($conn->query($sql) === TRUE) {
@@ -55,7 +55,7 @@
 	}
 	echo '<br>';
 	
-	$sql = "INSERT INTO player (Email, Username, Password, Highscore)
+	$sql = "INSERT INTO player (email, username, password, highscore)
 	VALUES ('kevin_chen@yahoo.com', 'Kevin_Chen', 'wordpass', 15)";
 
 	if ($conn->query($sql) === TRUE) {
