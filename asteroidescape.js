@@ -278,7 +278,7 @@
 	  }
 	  if (deadTimer == 1){
 		deadTimer = 0;
-		updateStats();
+		saveFun();
 		Game.context.font = "24px serif"; 
 	    Game.context.textAlign = "center"; 
 	    Game.context.textBaseline = "hanging"; 
@@ -733,7 +733,7 @@
         xmlhttp.send(params);
 	}
 
-	function updateStats(){
+	function saveFun(){
 	var params = "username=" + username + "&password=" + pass;
 		xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
@@ -745,7 +745,7 @@
 				}
 			}
 		};
-		xmlhttp.open("POST","updateStats.php",true);
+		xmlhttp.open("POST","saveFun.php",true);
 		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send(params);
 	}
