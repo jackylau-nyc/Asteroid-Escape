@@ -739,9 +739,9 @@
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 				var response = xmlhttp.responseText;
-				console.log('scoreresponse:'+response);
+				console.log('updating stats: '+response);
 				if (response == 'Saved Successfully.') {
-					//console.log('going to ClearLogIn');
+					console.log('plz work');
 				}
 			}
 		};
