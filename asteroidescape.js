@@ -20,6 +20,7 @@
 	var androidDeadSound = new Audio('death.mp3');
 	//var chocPickUpSound = document.getElementById("chocPickUp"); 
 	var heartOnScreen = false;
+	var battPickup = 0;
 	var chocDropped = 0;
 	var difficulty = 0;
 	var difficultyFactor = 15;
@@ -314,6 +315,7 @@
 		Game.player.changeAnimationTo = 'hurt';
 	  }
 	  if (testCollision(Game.player, Game.chocbar)) {
+	  battPickup = battPickup + 1;
 	  var chocSound = chocPickUpSound.cloneNode();
 	  chocSound.volume = eventVolume/2;
 	  chocSound.play();
@@ -734,7 +736,7 @@
 	}
 
 	function saveFun(){
-	var params = "username=" + username + "&password=" + pass;
+	var params = "username=" + username + "&password=" + pass + "&battPickup=" + battPickup;
 		xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -748,6 +750,7 @@
 		xmlhttp.open("POST","saveFun.php",true);
 		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send(params);
+        battPickup = 0;
 	}
 	
 	function clearSignUpForm(){

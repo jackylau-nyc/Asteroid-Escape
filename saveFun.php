@@ -6,6 +6,7 @@
 		
 		 $user = ($_POST["username"]);
 		 $pass = ($_POST["password"]);
+		 $battPickup = ($POST["battPickup"]);
 		 //echo "Sent Score: '". $score ."'";
 		 
 		 if (empty($user) || empty($pass)){
@@ -40,7 +41,7 @@
 			die();
 		}
 		else {
-				$query = "UPDATE player SET numPlayed = `numPlayed` + 1 WHERE username = '". $row['username'] . "'";
+				$query = "UPDATE player SET numPlayed = `numPlayed` + 1, `numBatts` = `numBatts` + "+$battPickup+" WHERE username = '". $row['username'] . "'";
 				
 				  if ( !( $result = mysqli_query($database, $query) ) ) {
 					echo( "Could not execute query!" );
