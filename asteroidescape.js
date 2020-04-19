@@ -283,6 +283,7 @@
 	    Game.context.textBaseline = "hanging"; 
 	    Game.context.fillText("You Died!", Game.width/2, (Game.height/2) - 50);
 	    Game.context.fillText("Your Score : " + Game.score, Game.width/2, (Game.height/2) - 25);
+	    updatePlays();
 		if (Game.score > highscore) {
 			Game.context.fillText("Congrats! You beat your old highscore of : " + highscore, Game.width/2, (Game.height/2));
 			highscore = Game.score;
@@ -728,6 +729,23 @@
 			}
 		};
 		xmlhttp.open("POST","saveScore.php",true);
+		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send(params);
+	}
+
+	function updateStats(){
+	var params = "username=" + username + "&password=" + pass;
+		xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				var response = xmlhttp.responseText;
+				console.log('scoreresponse:'+response);
+				if (response == 'Saved Successfully.') {
+					//console.log('going to ClearLogIn');
+				}
+			}
+		};
+		xmlhttp.open("POST","updateStats.php",true);
 		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send(params);
 	}
