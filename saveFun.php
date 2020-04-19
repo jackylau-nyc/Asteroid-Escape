@@ -6,7 +6,7 @@
 		
 		 $user = ($_POST["username"]);
 		 $pass = ($_POST["password"]);
-		 $battPickup = ($_POST["battPickup"]);
+		 $battPickup = (int)($_POST["battPickup"]);
 		 //echo "Sent Score: '". $score ."'";
 		 
 		 if (empty($user) || empty($pass)){
