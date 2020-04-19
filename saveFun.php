@@ -40,7 +40,7 @@
 			die();
 		}
 		else {
-				$query = "UPDATE player SET numPlayed = 1 WHERE username = '". $row['username'] . "'";
+				$query = "UPDATE player SET numPlayed = `numPlayed` + 1 WHERE username = '". $row['username'] . "'";
 				
 				  if ( !( $result = mysqli_query($database, $query) ) ) {
 					echo( "Could not execute query!" );
