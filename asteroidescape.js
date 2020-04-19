@@ -278,6 +278,7 @@
 	  }
 	  if (deadTimer == 1){
 		deadTimer = 0;
+		updateStats();
 		Game.context.font = "24px serif"; 
 	    Game.context.textAlign = "center"; 
 	    Game.context.textBaseline = "hanging"; 
@@ -286,8 +287,7 @@
 		if (Game.score > highscore) {
 			Game.context.fillText("Congrats! You beat your old highscore of : " + highscore, Game.width/2, (Game.height/2));
 			highscore = Game.score;
-			updateStats();
-			//saveHighScore();
+			saveHighScore();
 		}
 	    Game.context.fillText("Press P to restart.", Game.width/2, (Game.height/2) + 100);
 		//var t1 = performance.now();
