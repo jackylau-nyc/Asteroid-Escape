@@ -720,7 +720,7 @@
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 				var response = xmlhttp.responseText;
-				//console.log('scoreresponse:'+response);
+				console.log('scoreresponse:'+response);
 				if (response == 'Saved Successfully.') {
 					//console.log('going to ClearLogIn');
 					clearLogIn();
