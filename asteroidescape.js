@@ -5,8 +5,8 @@
 	var listening = true;
 	var paused = true;
 	var changeDifficulty = false;
-	var fireballOnScreen = false;
-	var chocbarOnScreen = false;
+	var asteroidOnScreen = false;
+	var batteryOnScreen = false;
 	bgMusic = new Audio('vaporwave-loop.mp3'); 
 	bgMusic.addEventListener('ended', function() {
 		this.currentTime = 0;
@@ -14,14 +14,14 @@
 	}, false);
 	var eventVolume = 0.2;
 	bgMusic.volume = eventVolume/3;
-	var chocPickUpSound = new Audio('health.mp3');
-	var heartPickUpSound = new Audio('health-kit.mp3');
-	var fireballPickUpSound = new Audio('hit.mp3');
-	var androidDeadSound = new Audio('death.mp3');
-	//var chocPickUpSound = document.getElementById("chocPickUp"); 
-	var heartOnScreen = false;
+	var battPickUpSound = new Audio('health.mp3');
+	var repairPickUpSound = new Audio('health-kit.mp3');
+	var asteroidPickUpSound = new Audio('hit.mp3');
+	var spaceshipDeadSound = new Audio('death.mp3');
+	//var battPickUpSound = document.getElementById("battPickUp"); 
+	var repairOnScreen = false;
 	var battPickup = 0;
-	var chocDropped = 0;
+	var battDropped = 0;
 	var difficulty = 0;
 	var difficultyFactor = 15;
 	var deadTimer = -1;
@@ -32,8 +32,8 @@
 		ball.src = 'asteroid.png';
 	var bar = new Image();
 		bar.src = 'battery.png';
-	var heart = new Image();
-		heart.src = 'repair.png';
+	var repair = new Image();
+		repair.src = 'repair.png';
 	var bgImage = new Image();
 		bgImage.src = 'spacebg.jpg';
 	var bgCol = 11;
@@ -55,10 +55,10 @@
 			start();
 			deadTimer = -1;
 			paused = true;
-			fireballOnScreen = false;
-			chocbarOnScreen = false;
-			heartOnScreen = false;
-			chocDropped = 0;
+			asteroidOnScreen = false;
+			batteryOnScreen = false;
+			repairOnScreen = false;
+			battDropped = 0;
 			difficulty = 0;
 			bgMusic.pause();
 			return;
@@ -128,7 +128,7 @@
 	  score : 0,
 	  lives : 0,
 	  multiplier : 1,
-	  chocInARow : 0
+	  battInARow : 0
 	  //updateInterval: setInterval(function() {}, 1000),
 	  //drawInterval: setInterval(function() {}, 1000)
     };
@@ -179,13 +179,13 @@
 	  //Game.background1 = new Background1();
 	  //Game.background2 = new Background2();
       Game.player = new Player();
-	  Game.fireball = new Fireball();
-	  fireballOnScreen = true;
-	  Game.chocbar = new Chocbar();
-	  chocbarOnScreen = true;
-	  chocDropped += 1;
-	  Game.heart = new Heart();
-	  heartOnScreen = true;
+	  Game.asteroid = new Asteroid();
+	  asteroidOnScreen = true;
+	  Game.battery = new Battery();
+	  batteryOnScreen = true;
+	  battDropped += 1;
+	  Game.repair = new Repair();
+	  repairOnScreen = true;
       Game._onEachFrame(Game.run);
       //Game.updateInterval = setInterval(Game.update, Game.ticks);
 	  //clearInterval(Game.drawInterval);
@@ -193,7 +193,7 @@
 	  Game.score = 0;
 	  Game.lives = 0;
 	  Game.multiplier = 1;
-	  Game.chocInARow = 0;
+	  Game.battInARow = 0;
 	  //var t1 = performance.now();
 	  //console.log("Game.start took " + ((t1 - t0)) + "ms.");
     };
@@ -235,9 +235,9 @@
 	  //Game.background1.draw(Game.context);
 	  //Game.background2.draw(Game.context);
 	  Game.player.draw(Game.context);
-	  Game.fireball.draw(Game.context);
-	  Game.chocbar.draw(Game.context);
-	  Game.heart.draw(Game.context);
+	  Game.asteroid.draw(Game.context);
+	  Game.battery.draw(Game.context);
+	  Game.repair.draw(Game.context);
 	  //var t2 = performance.now();
 	  //if ((t2 - t0) > 1)console.log("#102 - GameDraw took more than 1ms: " + (t2 - t0) + ".");
 	  Game.context.shadowBlur = 2;
@@ -246,10 +246,10 @@
 	  Game.context.textBaseline = "hanging"; 
 	  Game.context.fillText("Score:"+Game.score, Game.width, 0);
 	  Game.context.textAlign = "left"; 
-	  var accur = Math.floor(Game.score/(chocDropped-1) * 100);
-	  //if (chocDropped != 1) Game.context.fillText("Accuracy:"+accur+"%", 0, 0);
+	  var accur = Math.floor(Game.score/(battDropped-1) * 100);
+	  //if (battDropped != 1) Game.context.fillText("Accuracy:"+accur+"%", 0, 0);
 	  //else Game.context.fillText("Accuracy:0%", 0, 0);
-	  Game.context.fillText("Multiplier : "+parseInt(Game.multiplier)+" x ("+Game.chocInARow+")", 0, 0);
+	  Game.context.fillText("Multiplier : "+parseInt(Game.multiplier)+" x ("+Game.battInARow+")", 0, 0);
 	  Game.context.textAlign = "center"; 
 	  Game.context.fillText("Lives Remaining : "+Game.lives, Game.width/2, 0);
 	  //Game.context.fillText("FPS:" + (1000/(performance.now() - lastDrawTime)), Game.width/2, 25);
@@ -265,9 +265,9 @@
 	  if (paused == true || deadTimer == 0) return;
 	  //var t0 = performance.now();
       Game.player.update();
-	  Game.fireball.update();
-	  Game.chocbar.update();
-	  Game.heart.update();
+	  Game.asteroid.update();
+	  Game.battery.update();
+	  Game.repair.update();
 	  Game.background.update();
 	  //Game.background1.update();
 	  //Game.background2.update();
@@ -296,45 +296,45 @@
 		bgMusic.pause();
 		return;
 	  }
-	  if(testCollision(Game.player, Game.fireball)) {
+	  if(testCollision(Game.player, Game.asteroid)) {
       
 	  if (Game.lives == 0){
 		deadTimer = animateTimer;
-		var deadSound = androidDeadSound.cloneNode();
+		var deadSound = spaceshipDeadSound.cloneNode();
 	    deadSound.volume = eventVolume;
 	    deadSound.play();
 	  } else {
 		  Game.lives -= 1;
-		  var hurtSound = fireballPickUpSound.cloneNode();
+		  var hurtSound = asteroidPickUpSound.cloneNode();
 	      hurtSound.volume = eventVolume;
 	      hurtSound.play();
 	   }
-		fireballOnScreen = false;
+		asteroidOnScreen = false;
 		hurtTimer = animateTimer;
 		Game.player.animateFrame = 0;
 		Game.player.changeAnimationTo = 'hurt';
 	  }
-	  if (testCollision(Game.player, Game.chocbar)) {
+	  if (testCollision(Game.player, Game.battery)) {
 	  battPickup = battPickup + 1;
-	  var chocSound = chocPickUpSound.cloneNode();
-	  chocSound.volume = eventVolume/2;
-	  chocSound.play();
+	  var battSound = battPickUpSound.cloneNode();
+	  battSound.volume = eventVolume/2;
+	  battSound.play();
 	  Game.score += parseInt(Game.multiplier)*1;
-	  Game.chocInARow++;
-	  Game.multiplier = 1 + (Game.chocInARow / 5);
+	  Game.battInARow++;
+	  Game.multiplier = 1 + (Game.battInARow / 5);
 	  
-	  chocbarOnScreen = false;
+	  batteryOnScreen = false;
 	  eatTimer = animateTimer;
 	  Game.player.animateFrame = 0;
 	  Game.player.changeAnimationTo = 'eat';
 	  
 	  }
-	  if (testCollision(Game.player, Game.heart)) {
-	  var heartSound = heartPickUpSound.cloneNode();
-	  heartSound.volume = eventVolume;
-	  heartSound.play();
+	  if (testCollision(Game.player, Game.repair)) {
+	  var repairSound = repairPickUpSound.cloneNode();
+	  repairSound.volume = eventVolume;
+	  repairSound.play();
 	  Game.lives += 1;
-	  heartOnScreen = false;
+	  repairOnScreen = false;
 	  lifeTimer = animateTimer;
 	  Game.player.animateFrame = 0;
 	  Game.player.changeAnimationTo = 'life';
@@ -384,7 +384,7 @@
 	  changeAnimationTo = '';
     }
 	
-	function Fireball(){
+	function Asteroid(){
 	  this.width = 40;
 	  this.height = this.width;
 	  this.x = Math.ceil(Math.random() * (Game.width - this.width/2));
@@ -396,7 +396,7 @@
 	  this.animateFrame = 0;
 	}
 	
-	function Chocbar(){
+	function Battery(){
 	  this.width = 48;
 	  this.height = this.width;
 	  this.x = Math.ceil(Math.random() * (Game.width - this.width/2));
@@ -408,7 +408,7 @@
 	  this.animateFrame = 0;
 	}
 	
-	function Heart(){
+	function Repair(){
 	  this.width = 36;
 	  this.height = this.width;
 	  this.x = Math.ceil(Math.random() * (Game.width - this.width/2));
@@ -450,34 +450,34 @@
 		//if ((t1 - t0) > 0.25)console.log("#101 - BG2 took more than 0.25ms: " + (t1 - t0) + ".");
 	};	
 	
-	Fireball.prototype.draw = function(context) {
+	Asteroid.prototype.draw = function(context) {
 		//var t0 = performance.now();
 		var frameCol = Math.floor(this.animateFrame) % 7;
 		var frameRow = Math.floor(this.animateFrame / 7) % 2;
 		context.drawImage(ball, frameCol*(ball.width/7), frameRow*(ball.height/2),ball.width/7,ball.height/2, this.x, this.y, this.width, this.height);
 		//var t1 = performance.now();
-		//if ((t1 - t0) > 0.25)console.log("#101 - fireball took more than 0.25ms: " + (t1 - t0) + ".");
+		//if ((t1 - t0) > 0.25)console.log("#101 - asteroid took more than 0.25ms: " + (t1 - t0) + ".");
 	};
 	
-	Chocbar.prototype.draw = function(context) {
+	Battery.prototype.draw = function(context) {
 		//var t0 = performance.now();
 		context.shadowBlur = 10;
 		var frameCol = Math.floor(this.animateFrame) % 6;
 		var frameRow = Math.floor(this.animateFrame / 6) % 4;
-		//context.drawImage(heart, frameCol*(heart.width/7), frameRow*(heart.height/2),heart.width/7,heart.height/2, this.x, this.y, this.width, this.height);
+		//context.drawImage(repair, frameCol*(repair.width/7), frameRow*(repair.height/2),repair.width/7,repair.height/2, this.x, this.y, this.width, this.height);
 		context.drawImage(bar, frameCol*(bar.width/6), frameRow*(bar.height/4),bar.width/6,bar.height/4, this.x, this.y, this.width, this.height);
 		//var t1 = performance.now();
-		//if ((t1 - t0) > 0.25)console.log("#101 - chocobar took more than 0.25ms: " + (t1 - t0) + ".");
+		//if ((t1 - t0) > 0.25)console.log("#101 - battobar took more than 0.25ms: " + (t1 - t0) + ".");
 	};
 	
-	Heart.prototype.draw = function(context) {
+	Repair.prototype.draw = function(context) {
 		//var t0 = performance.now();
 		context.shadowBlur = 10;
 		var frameCol = Math.floor(this.animateFrame) % 7;
 		var frameRow = Math.floor(this.animateFrame / 7) % 2;
-		context.drawImage(heart, frameCol*(heart.width/7), frameRow*(heart.height/2),heart.width/7,heart.height/2, this.x, this.y, this.width, this.height);
+		context.drawImage(repair, frameCol*(repair.width/7), frameRow*(repair.height/2),repair.width/7,repair.height/2, this.x, this.y, this.width, this.height);
 		//var t1 = performance.now();
-		//if ((t1 - t0) > 0.25)console.log("#101 - heart took more than 0.25ms: " + (t1 - t0) + ".");
+		//if ((t1 - t0) > 0.25)console.log("#101 - repair took more than 0.25ms: " + (t1 - t0) + ".");
 	};
 
     Player.prototype.draw = function(context) {
@@ -557,15 +557,15 @@
 	  }
     };
 	
-	Fireball.prototype.update = function() {
-      if (!fireballOnScreen){
+	Asteroid.prototype.update = function() {
+      if (!asteroidOnScreen){
 		this.x = Math.ceil(Math.random() * (Game.width - this.width));
 		this.y = -10;
-		fireballOnScreen = true;
+		asteroidOnScreen = true;
 	  } 
 	  else {
 	     this.y += this.speed;
-		 if (this.y > Game.height) fireballOnScreen = false;
+		 if (this.y > Game.height) asteroidOnScreen = false;
 	  }
 	  this.centerx = this.x + (this.width/2);
 	  this.centery = this.y + (this.height/2);
@@ -573,19 +573,19 @@
 	  this.animateFrame += 0.2;
     };
 	
-	Chocbar.prototype.update = function() {
-      if (!chocbarOnScreen){
+	Battery.prototype.update = function() {
+      if (!batteryOnScreen){
 		this.x = Math.ceil(Math.random() * (Game.width - this.width));
 		this.y = -10;
-		chocbarOnScreen = true;
-		chocDropped += 1;
+		batteryOnScreen = true;
+		battDropped += 1;
 	  } 
 	  else {
 	     this.y += this.speed;
 		 if (this.y > Game.height) {
-			 chocbarOnScreen = false;
+			 batteryOnScreen = false;
 			 Game.multiplier = 1;
-			 Game.chocInARow = 0;
+			 Game.battInARow = 0;
 		 }
 	  }
 	  this.centerx = this.x + (this.width/2);
@@ -594,11 +594,11 @@
 	  this.animateFrame += 0.5;
     };
 	
-	Heart.prototype.update = function() {
-      if (!heartOnScreen){
+	Repair.prototype.update = function() {
+      if (!repairOnScreen){
 			this.x = Math.ceil(Math.random() * (Game.width - this.width));
 			this.y = -50;
-			heartOnScreen = true;
+			repairOnScreen = true;
 			this.speed = 0;
 	  } 
 	  else {
@@ -611,7 +611,7 @@
 			}
 		 }
 	     this.y += this.speed;
-		 if (this.y > Game.height) heartOnScreen = false;
+		 if (this.y > Game.height) repairOnScreen = false;
 	  }
 	  this.centerx = this.x + (this.width/2);
 	  this.centery = this.y + (this.height/2);

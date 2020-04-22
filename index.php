@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hungry Droid</title>
+    <title>Asteroid Escape</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
     <script src = "asteroidescape.js"></script>
   </head>
