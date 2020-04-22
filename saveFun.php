@@ -41,7 +41,7 @@
 			die();
 		}
 		else {
-				$query = "UPDATE player SET numPlayed = `numPlayed` + 1, numBatts = `numBatts` + "+intval($battPickup)+" WHERE username = '". $row['username'] . "'";
+				$query = "UPDATE player SET numPlayed = `numPlayed` + 1, numBatts = `numBatts` + "+intval($battPickup)+" WHERE username = '"$row['username']"'";
 				echo $battPickup;
 				  if ( !( $result = mysqli_query($database, $query) ) ) {
 					echo( $result + "\nCould not execute query!" );
